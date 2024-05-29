@@ -1,5 +1,6 @@
 using Xunit;
 using Album.Api.Services;
+using System.Net;
 
 namespace Album.Api.Tests
 {
@@ -16,7 +17,7 @@ namespace Album.Api.Tests
         public void GetGreeting_WithGivenName_ReturnsHelloName()
         {
             string result = _greetingService.GetGreeting("Alice");
-            Assert.Equal("Hello, Alice!", result);
+            Assert.Equal($"Hello, Alice! from {Dns.GetHostName()}", result);
         }
 
         [Theory]
