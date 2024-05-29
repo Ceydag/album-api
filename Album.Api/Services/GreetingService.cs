@@ -1,3 +1,5 @@
+using System.Net;
+
 namespace Album.Api.Services
 {
     public class GreetingService
@@ -10,7 +12,7 @@ namespace Album.Api.Services
             }
             else
             {
-                return $"Hello, {name}!";
+                return $"Hello, {name}! from {Dns.GetHostName()}"; 
             }
         }
     }
