@@ -1,5 +1,5 @@
 # Gebruik de officiële ASP.NET Core Runtime als basisimage
-FROM mcr.microsoft.com/dotnet/aspnet:5.0
+FROM mcr.microsoft.com/dotnet/aspnet:7.0
 
 # Zet de werkdirectory in naar de app map
 WORKDIR /app
