@@ -10,7 +10,7 @@ namespace Album.Api.Tests
         public void TestGreetingNamed()
         {
             MessageModel result = greetingService.GetGreeting("Ceyda");
-            Assert.StartsWith("Hello CEYDA", result.message);
+            Assert.StartsWith("Hello Ceyda", result.message);
         }
 
         [Fact]
