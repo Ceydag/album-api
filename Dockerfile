@@ -1,26 +1,13 @@
-# Use the official image as a parent image.
-FROM mcr.microsoft.com/dotnet/sdk:7.0 AS base
-# Set the working directory.
+# Gebruik de officiële ASP.NET Core Runtime als basisimage
+FROM mcr.microsoft.com/dotnet/aspnet:7.0
+# Zet de werkdirectory in naar de app map
 WORKDIR /app
+# Kopieer de gepubliceerde output van de applicatie naar de container
+COPY ./publish/ .
+# Definieer de poort waarop de applicatie moet draaien
+ENV ASPNETCORE_HTTP_PORTS=80
+# Expose poort 80 naar buiten de container
 EXPOSE 80
 
-FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
-WORKDIR /src
-# Copy the csproj and restore dependencies
-COPY *.csproj ./
-
-RUN dotnet restore "Album.Api.csproj"
-
-# Copy everything else and build the app
-COPY . ./
-
-RUN dotnet build "Album.Api.csproj" -c Release -o /app/build
-
-FROM build AS publish
-RUN dotnet publish "AlbumApi.csproj" -c Release -o /app/publish /p:UseAppHost=false
-
-# Build runtime image
-FROM base AS final
-WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "AlbumApi.dll"]
+# Start de ASP.NET Core applicatie wanneer de container wordt gestart
+ENTRYPOINT ["dotnet", "Album.Api.dll"]
