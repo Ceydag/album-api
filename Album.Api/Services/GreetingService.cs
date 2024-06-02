@@ -1,19 +1,27 @@
-using System.Net;
+﻿using System.Net;
 
-namespace Album.Api.Services
+public class GreetingService
 {
-    public class GreetingService
+    public MessageModel GetGreeting(string? name = "")
     {
-        public string GetGreeting(string name)
+        return new MessageModel(name);
+    }
+}
+
+public class MessageModel
+{
+    public string message;
+    public MessageModel(string? name = "")
+    {
+        message = "Hello";
+        if (name == "" || name == null || name == " ")
         {
-            if (string.IsNullOrWhiteSpace(name))
-            {
-                return "Hello, World!";
-            }
-            else
-            {
-                return $"Hello, {name}! from {Dns.GetHostName()}"; 
-            }
+            message += " World";
         }
+        else
+        {
+            message += $" {name}";
+        }
+        message += $" from {Dns.GetHostName()} v2";
     }
 }

@@ -1,24 +1,27 @@
 using Microsoft.AspNetCore.Mvc;
-using Album.Api.Services;
 
-namespace Album.Api.Controllers
+namespace AlbumApi.Controllers
 {
+    [Route("api/hello")]
     [ApiController]
-    [Route("api/[controller]")]
     public class HelloController : ControllerBase
     {
-        private readonly GreetingService _greetingService;
+        private readonly GreetingService greetingService = new();
 
-        public HelloController(GreetingService greetingService)
+        private readonly ILogger<HelloController> _logger;
+
+        public HelloController(ILogger<HelloController> logger)
         {
-            _greetingService = greetingService;
+            _logger = logger;
         }
-
-        [HttpGet("hello")]
-        public IActionResult GetHello([FromQuery] string name)
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public string GetGreeting([FromQuery] string? name = "")
         {
-            string message = _greetingService.GetGreeting(name);
-            return Ok(new { Message = message });
+            var message = greetingService.GetGreeting(name);
+            string log_message = $"GetGreeting({name}): {message.message}";
+            _logger.LogInformation(log_message);
+            return message.message;
         }
     }
 }

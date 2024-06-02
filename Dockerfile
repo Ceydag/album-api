@@ -9,5 +9,6 @@ ENV ASPNETCORE_HTTP_PORTS=80
 # Expose poort 80 naar buiten de container
 EXPOSE 80
 
+
 # Start de ASP.NET Core applicatie wanneer de container wordt gestart
 ENTRYPOINT ["dotnet", "Album.Api.dll"]
