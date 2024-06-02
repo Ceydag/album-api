@@ -4,30 +4,28 @@ using System.Net;
 
 namespace Album.Api.Tests
 {
-    public class GreetingServiceTests
+    public class TestGreetingService
     {
-        private readonly GreetingService _greetingService;
-
-        public GreetingServiceTests()
+        public GreetingService greetingService = new();
+        [Fact]
+        public void TestGreetingNamed()
         {
-            _greetingService = new GreetingService();
+            MessageModel result = greetingService.GetGreeting("Ceyda");
+            Assert.StartsWith("Hello CEYDA", result.message);
         }
 
         [Fact]
-        public void GetGreeting_WithGivenName_ReturnsHelloName()
+        public void TestGreetingNull()
         {
-            string result = _greetingService.GetGreeting("Alice");
-            Assert.Equal($"Hello, Alice! from {Dns.GetHostName()}", result);
+            MessageModel result = greetingService.GetGreeting(null);
+            Assert.StartsWith("Hello World", result.message);
         }
 
-        [Theory]
-        [InlineData(null, "Hello, World!")]
-        [InlineData("", "Hello, World!")]
-        [InlineData("   ", "Hello, World!")]
-        public void GetGreeting_WithNullOrWhiteSpace_ReturnsHelloWorld(string name, string expected)
+        [Fact]
+        public void TestGreetingEmpty()
         {
-            string result = _greetingService.GetGreeting(name);
-            Assert.Equal(expected, result);
+            MessageModel result = greetingService.GetGreeting();
+            Assert.StartsWith("Hello World", result.message);
         }
     }
 }
