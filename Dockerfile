@@ -5,7 +5,7 @@ FROM mcr.microsoft.com/dotnet/aspnet:5.0
 WORKDIR /app
 
 # Kopieer de gepubliceerde output van de applicatie naar de container
-COPY ./Album.Api/bin/Debug/net7.0/ .
+COPY ./publish/ .
 
 # Definieer de poort waarop de applicatie moet draaien
 ENV ASPNETCORE_URLS=http://*:80

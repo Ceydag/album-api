@@ -14,14 +14,17 @@ jobs:
       with:
         dotnet-version: '7.0.x'
 
-    - name: Build
-      run: dotnet build
+    - name: Restore dependencies
+      run: dotnet restore
 
-    - name: Test
-      run: dotnet test
+    - name: Build
+      run: dotnet build --configuration Release
 
     - name: Integration Tests
       run: dotnet test Album.Api.Tests
+
+    - name: Publish
+      run: dotnet publish --configuration Release --output ./publish
 
     - name: Build Docker Image
       uses: docker/build-push-action@v2
