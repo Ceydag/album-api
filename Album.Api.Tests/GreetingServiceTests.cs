@@ -1,5 +1,4 @@
 using Xunit;
-using Album.Api.Services;
 using System.Net;
 
 namespace Album.Api.Tests
