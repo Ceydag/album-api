@@ -12,6 +12,7 @@ ENV ASPNETCORE_URLS=http://*:80
 
 # Expose poort 80 naar buiten de container
 EXPOSE 80
+EXPOSE 443
 
 # Start de ASP.NET Core applicatie wanneer de container wordt gestart
 ENTRYPOINT ["dotnet", "Album.Api.dll"]
