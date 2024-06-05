@@ -9,7 +9,11 @@ namespace Album.Api.Controllers
         [HttpGet("health")]
         public IActionResult CheckHealth()
         {
-            return Ok("Healthy");
+             try {
+                return Ok("Healthy");
+            } catch {
+                return Ok("Not healthy");
+            }
         }
     }
 }
