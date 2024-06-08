@@ -333,3 +333,4 @@ C:\Users\Ceyda\Documents\School\cloud\week3\album-api\Album.Api.Tests\obj\Debug\
 C:\Users\Ceyda\Documents\School\cloud\week3\album-api\Album.Api.Tests\obj\Debug\net7.0\Album.Api.Tests.pdb
 C:\Users\Ceyda\Documents\School\cloud\week3\album-api\Album.Api.Tests\obj\Debug\net7.0\Album.Api.Tests.genruntimeconfig.cache
 C:\Users\Ceyda\Documents\School\cloud\week3\album-api\Album.Api.Tests\obj\Debug\net7.0\ref\Album.Api.Tests.dll
+C:\Users\Ceyda\Documents\School\cloud\week3\album-api\Album.Api.Tests\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.InMemory.dll

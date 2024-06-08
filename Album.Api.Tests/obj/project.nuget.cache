@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "O6X26I/6wu9haZtDnsSghgnOI9tp3eylDgAvS+h7t+yVXerlqAQ+o+2RWP+XvF8KE6o1/DS6op3xYt/+Rw20sA==",
+  "dgSpecHash": "JV1t+my9wtjvRS9rnhsaA3j36z2T35ZD/mEy3CRrZFw3sz27uK12F34MfB3ukVXLwCVCFIQOoYRw1UTSpuyb4w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ceyda\\Documents\\School\\cloud\\week3\\album-api\\album.api.tests\\Album.Api.Tests.csproj",
+  "projectFilePath": "C:\\Users\\Ceyda\\Documents\\School\\cloud\\week3\\album-api\\Album.Api.Tests\\Album.Api.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ceyda\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Ceyda\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
@@ -84,6 +84,7 @@
     "C:\\Users\\Ceyda\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.20\\microsoft.entityframeworkcore.abstractions.7.0.20.nupkg.sha512",
     "C:\\Users\\Ceyda\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.20\\microsoft.entityframeworkcore.analyzers.7.0.20.nupkg.sha512",
     "C:\\Users\\Ceyda\\.nuget\\packages\\microsoft.entityframeworkcore.design\\7.0.20\\microsoft.entityframeworkcore.design.7.0.20.nupkg.sha512",
+    "C:\\Users\\Ceyda\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\7.0.20\\microsoft.entityframeworkcore.inmemory.7.0.20.nupkg.sha512",
     "C:\\Users\\Ceyda\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\7.0.20\\microsoft.entityframeworkcore.relational.7.0.20.nupkg.sha512",
     "C:\\Users\\Ceyda\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\7.0.20\\microsoft.entityframeworkcore.sqlserver.7.0.20.nupkg.sha512",
     "C:\\Users\\Ceyda\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",

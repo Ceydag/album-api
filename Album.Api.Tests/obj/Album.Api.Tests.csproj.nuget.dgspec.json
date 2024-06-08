@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ceyda\\Documents\\School\\cloud\\week3\\album-api\\album.api.tests\\Album.Api.Tests.csproj": {}
+    "C:\\Users\\Ceyda\\Documents\\School\\cloud\\week3\\album-api\\Album.Api.Tests\\Album.Api.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ceyda\\Documents\\School\\cloud\\week3\\album-api\\album.api.tests\\Album.Api.Tests.csproj": {
+    "C:\\Users\\Ceyda\\Documents\\School\\cloud\\week3\\album-api\\Album.Api.Tests\\Album.Api.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ceyda\\Documents\\School\\cloud\\week3\\album-api\\album.api.tests\\Album.Api.Tests.csproj",
+        "projectUniqueName": "C:\\Users\\Ceyda\\Documents\\School\\cloud\\week3\\album-api\\Album.Api.Tests\\Album.Api.Tests.csproj",
         "projectName": "Album.Api.Tests",
-        "projectPath": "C:\\Users\\Ceyda\\Documents\\School\\cloud\\week3\\album-api\\album.api.tests\\Album.Api.Tests.csproj",
+        "projectPath": "C:\\Users\\Ceyda\\Documents\\School\\cloud\\week3\\album-api\\Album.Api.Tests\\Album.Api.Tests.csproj",
         "packagesPath": "C:\\Users\\Ceyda\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ceyda\\Documents\\School\\cloud\\week3\\album-api\\album.api.tests\\obj\\",
+        "outputPath": "C:\\Users\\Ceyda\\Documents\\School\\cloud\\week3\\album-api\\Album.Api.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ceyda\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -44,6 +44,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[7.0.*, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[17.3.2, )"
