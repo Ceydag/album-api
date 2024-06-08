@@ -20,7 +20,7 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release
 
-    - name: Integration Tests
+    - name: Unit Tests
       run: dotnet test Album.Api.Tests
 
     - name: Publish
