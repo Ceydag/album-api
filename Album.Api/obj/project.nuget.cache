@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aHU+TgGPcShwHzz1/tFk5wXV3MnhYBG4ieYNiLDrE77e4yhMvu2xoLHCDmooVy3kd3wPSAP1/ASziZchoQKzSg==",
+  "dgSpecHash": "ta9K4unRkr2t/8oA68ouNz579JnlncgYkNSl2LGIQL096f8f4pJTFXqefKI6vBH3YFYSmkVCNycEGB9Q4twIYA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ceyda\\Documents\\School\\cloud\\week3\\album-api\\Album.Api\\Album.Api.csproj",
+  "projectFilePath": "C:\\Users\\Ceyda\\Documents\\School\\cloud\\week3\\album-api\\album.api\\Album.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ceyda\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Ceyda\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

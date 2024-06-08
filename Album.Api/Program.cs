@@ -2,6 +2,7 @@
 
 using Album.Api.Database;
 using Microsoft.EntityFrameworkCore;
+using Npgsql;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -47,12 +48,14 @@ app.UseCors(policy => policy
 				.AllowAnyHeader()
 				.AllowAnyOrigin());
 				
+
 				
-using (var scope = app.Services.CreateScope())
-{
-    var dbContext = scope.ServiceProvider.GetRequiredService<Album.Api.Database.AlbumContext>();
-    DBInitializer.Initialize(dbContext);
-}
+// using (var scope = app.Services.CreateScope())
+// {
+//     var dbContext = scope.ServiceProvider.GetRequiredService<Album.Api.Database.AlbumContext>();
+//     DBInitializer.Initialize(dbContext);
+// }
+
 
 
 app.Run();
