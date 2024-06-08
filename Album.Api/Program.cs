@@ -1,6 +1,7 @@
 // note: namespace AlbumApi renamed from Album.Api to fix model Album namespace error.
 
 using Album.Api.Database;
+using Album.Api.Models;
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
 
@@ -50,11 +51,11 @@ app.UseCors(policy => policy
 				
 
 				
-// using (var scope = app.Services.CreateScope())
-// {
-//     var dbContext = scope.ServiceProvider.GetRequiredService<Album.Api.Database.AlbumContext>();
-//     DBInitializer.Initialize(dbContext);
-// }
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<Album.Api.Database.AlbumContext>();
+    DBInitializer.Initialize(dbContext);
+}
 
 
 
