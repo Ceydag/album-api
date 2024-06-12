@@ -67,160 +67,116 @@ public class AlbumService : IAlbumService
 
 namespace Album.Api.Controllers
 {
-	[ApiController]
-	[Route("api/[controller]")]
-	public class AlbumController : Controller
-	{
-		private readonly AlbumContext _context;
+    [ApiController]
+    [Route("api/[controller]")]
+    public class AlbumController : ControllerBase
+    {
+        private readonly AlbumContext _context;
 
-		public AlbumController(AlbumContext context)
-		{
-			_context = context;
-		}
+        public AlbumController(AlbumContext context)
+        {
+            _context = context;
+        }
 
-		// GET: Album
-		[HttpGet]
-		public async Task<IActionResult> Index()
-		{
-			  return _context.Albums != null ? 
-						  View(await _context.Albums.ToListAsync()) :
-						  Problem("Entity set 'AlbumContext.Albums'  is null.");
-		}
+        // GET: api/album
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Models.Album>>> Index()
+        {
+            if (_context.Albums == null)
+            {
+                return Problem("Entity set 'AlbumContext.Albums' is null.");
+            }
+            return await _context.Albums.ToListAsync();
+        }
 
-		// GET: Album/Details/5
-		[HttpGet("{id}")]
-		public async Task<IActionResult> Details(int? id)
-		{
-			if (id == null || _context.Albums == null)
-			{
-				return NotFound();
-			}
+        // GET: api/album/{id}
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Models.Album>> Details(int id)
+        {
+            if (_context.Albums == null)
+            {
+                return NotFound();
+            }
 
-			var album = await _context.Albums
-				.FirstOrDefaultAsync(m => m.Id == id);
-			if (album == null)
-			{
-				return NotFound();
-			}
+            var album = await _context.Albums.FindAsync(id);
+            if (album == null)
+            {
+                return NotFound();
+            }
 
-			return View(album);
-		}
+            return album;
+        }
 
-		// GET: Album/Create
-		public IActionResult Create()
-		{
-			return View();
-		}
+        // POST: api/album
+        [HttpPost]
+        public async Task<ActionResult<Models.Album>> Create([FromBody] Models.Album album)
+        {
+            if (_context.Albums == null)
+            {
+                return Problem("Entity set 'AlbumContext.Albums' is null.");
+            }
 
-		// POST: Album/Create
-		// To protect from overposting attacks, enable the specific properties you want to bind to.
-		// For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-		[HttpPost]
-		[ValidateAntiForgeryToken]
-		public async Task<IActionResult> Create([Bind("Id,Name,Artist,ImageUrl")] Models.Album album)
-		{
-			if (ModelState.IsValid)
-			{
-				_context.Add(album);
-				await _context.SaveChangesAsync();
-				return RedirectToAction(nameof(Index));
-			}
-			return View(album);
-		}
+            _context.Albums.Add(album);
+            await _context.SaveChangesAsync();
 
-		// GET: Album/Edit/5
-		[HttpPut("{id}")]
-		public async Task<IActionResult> Edit(int? id)
-		{
-			if (id == null || _context.Albums == null)
-			{
-				return NotFound();
-			}
+            return CreatedAtAction(nameof(Details), new { id = album.Id }, album);
+        }
 
-			var album = await _context.Albums.FindAsync(id);
-			if (album == null)
-			{
-				return NotFound();
-			}
-			return View(album);
-		}
+        // PUT: api/album/{id}
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Edit(int id, [FromBody] Models.Album album)
+        {
+            if (id != album.Id)
+            {
+                return BadRequest();
+            }
 
-		// POST: Album/Edit/5
-		// To protect from overposting attacks, enable the specific properties you want to bind to.
-		// For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-		[HttpPost]
-		[ValidateAntiForgeryToken]
-		public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Artist,ImageUrl")] Models.Album album)
-		{
-			if (id != album.Id)
-			{
-				return NotFound();
-			}
+            _context.Entry(album).State = EntityState.Modified;
 
-			if (ModelState.IsValid)
-			{
-				try
-				{
-					_context.Update(album);
-					await _context.SaveChangesAsync();
-				}
-				catch (DbUpdateConcurrencyException)
-				{
-					if (!AlbumExists(album.Id))
-					{
-						return NotFound();
-					}
-					else
-					{
-						throw;
-					}
-				}
-				return RedirectToAction(nameof(Index));
-			}
-			return View(album);
-		}
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!AlbumExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
 
-		// GET: Album/Delete/5
-		[HttpDelete("{id}")]
-		public async Task<IActionResult> Delete(int? id)
-		{
-			if (id == null || _context.Albums == null)
-			{
-				return NotFound();
-			}
+            return NoContent();
+        }
 
-			var album = await _context.Albums
-				.FirstOrDefaultAsync(m => m.Id == id);
-			if (album == null)
-			{
-				return NotFound();
-			}
+        // DELETE: api/album/{id}
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            if (_context.Albums == null)
+            {
+                return NotFound();
+            }
 
-			return View(album);
-		}
+            var album = await _context.Albums.FindAsync(id);
+            if (album == null)
+            {
+                return NotFound();
+            }
 
-		// POST: Album/Delete/5
-		[HttpPost, ActionName("Delete")]
-		[ValidateAntiForgeryToken]
-		public async Task<IActionResult> DeleteConfirmed(int id)
-		{
-			if (_context.Albums == null)
-			{
-				return Problem("Entity set 'AlbumContext.Albums'  is null.");
-			}
-			var album = await _context.Albums.FindAsync(id);
-			if (album != null)
-			{
-				_context.Albums.Remove(album);
-			}
-			
-			await _context.SaveChangesAsync();
-			return RedirectToAction(nameof(Index));
-		}
+            _context.Albums.Remove(album);
+            await _context.SaveChangesAsync();
 
-		private bool AlbumExists(int id)
-		{
-		  return (_context.Albums?.Any(e => e.Id == id)).GetValueOrDefault();
-		}
-	}
+            return NoContent();
+        }
+
+        private bool AlbumExists(int id)
+        {
+            return (_context.Albums?.Any(e => e.Id == id)).GetValueOrDefault();
+        }
+    }
 }
+
