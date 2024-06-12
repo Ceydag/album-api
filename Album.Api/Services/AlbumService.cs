@@ -68,7 +68,7 @@ public class AlbumService : IAlbumService
 namespace Album.Api.Controllers
 {
 	[ApiController]
-    [Route("api/album")]
+	[Route("api/[controller]")]
 	public class AlbumController : Controller
 	{
 		private readonly AlbumContext _context;
@@ -79,6 +79,7 @@ namespace Album.Api.Controllers
 		}
 
 		// GET: Album
+		[HttpGet]
 		public async Task<IActionResult> Index()
 		{
 			  return _context.Albums != null ? 
@@ -87,6 +88,7 @@ namespace Album.Api.Controllers
 		}
 
 		// GET: Album/Details/5
+		[HttpGet("{id}")]
 		public async Task<IActionResult> Details(int? id)
 		{
 			if (id == null || _context.Albums == null)
@@ -127,6 +129,7 @@ namespace Album.Api.Controllers
 		}
 
 		// GET: Album/Edit/5
+		[HttpPut("{id}")]
 		public async Task<IActionResult> Edit(int? id)
 		{
 			if (id == null || _context.Albums == null)
@@ -178,6 +181,7 @@ namespace Album.Api.Controllers
 		}
 
 		// GET: Album/Delete/5
+		[HttpDelete("{id}")]
 		public async Task<IActionResult> Delete(int? id)
 		{
 			if (id == null || _context.Albums == null)

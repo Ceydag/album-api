@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ceyda\\Documents\\School\\cloud\\week3\\album-api\\Album.Api\\Album.Api.csproj": {}
+    "C:\\Users\\Ceyda\\Documents\\School\\cloud\\week3\\album-api\\album.api\\Album.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ceyda\\Documents\\School\\cloud\\week3\\album-api\\Album.Api\\Album.Api.csproj": {
+    "C:\\Users\\Ceyda\\Documents\\School\\cloud\\week3\\album-api\\album.api\\Album.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ceyda\\Documents\\School\\cloud\\week3\\album-api\\Album.Api\\Album.Api.csproj",
+        "projectUniqueName": "C:\\Users\\Ceyda\\Documents\\School\\cloud\\week3\\album-api\\album.api\\Album.Api.csproj",
         "projectName": "Album.Api",
-        "projectPath": "C:\\Users\\Ceyda\\Documents\\School\\cloud\\week3\\album-api\\Album.Api\\Album.Api.csproj",
+        "projectPath": "C:\\Users\\Ceyda\\Documents\\School\\cloud\\week3\\album-api\\album.api\\Album.Api.csproj",
         "packagesPath": "C:\\Users\\Ceyda\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ceyda\\Documents\\School\\cloud\\week3\\album-api\\Album.Api\\obj\\",
+        "outputPath": "C:\\Users\\Ceyda\\Documents\\School\\cloud\\week3\\album-api\\album.api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ceyda\\AppData\\Roaming\\NuGet\\NuGet.Config",
