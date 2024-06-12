@@ -13,7 +13,12 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddCors();
+builder.Services.AddCors(options => {
+		options.AddDefaultPolicy(builder => {
+			builder.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin();
+		}); 
+	});
+	
 
 var Configuration = new ConfigurationBuilder()
 	.AddJsonFile("appsettings.json")
@@ -53,8 +58,8 @@ app.UseCors(policy => policy
 				
 using (var scope = app.Services.CreateScope())
 {
-    var dbContext = scope.ServiceProvider.GetRequiredService<Album.Api.Database.AlbumContext>();
-    DBInitializer.Initialize(dbContext);
+	var dbContext = scope.ServiceProvider.GetRequiredService<Album.Api.Database.AlbumContext>();
+	DBInitializer.Initialize(dbContext);
 }
 
 
