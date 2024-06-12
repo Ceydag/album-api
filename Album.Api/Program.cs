@@ -34,6 +34,14 @@ builder.Services.AddDbContext<Album.Api.Database.AlbumContext>(options =>
 
 
 var app = builder.Build();
+
+app.UseCors(policy => policy
+				.AllowAnyMethod()
+				.AllowAnyHeader()
+				.AllowAnyOrigin());
+				
+				
+				
 app.MapHealthChecks("/health");
 
 
@@ -49,11 +57,6 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.UseCors(policy => policy
-				.AllowAnyMethod()
-				.AllowAnyHeader()
-				.AllowAnyOrigin());
-				
 
 				
 using (var scope = app.Services.CreateScope())
