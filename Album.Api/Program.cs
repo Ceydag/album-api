@@ -1,7 +1,6 @@
 using Album.Api.Database;
 using Album.Api.Models;
 using Microsoft.EntityFrameworkCore;
-using Npgsql;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,7 +22,7 @@ var Configuration = new ConfigurationBuilder()
     .Build();
 
 // Adding the database
-builder.Services.AddDbContext<Album.Api.Database.AlbumContext>(options =>
+builder.Services.AddDbContext<AlbumContext>(options =>
 {
     options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"));
 });
@@ -53,7 +52,7 @@ app.MapControllers();
 
 using (var scope = app.Services.CreateScope())
 {
-    var dbContext = scope.ServiceProvider.GetRequiredService<Album.Api.Database.AlbumContext>();
+    var dbContext = scope.ServiceProvider.GetRequiredService<AlbumContext>();
     DBInitializer.Initialize(dbContext);
 }
 
